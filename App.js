@@ -1,21 +1,32 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
+
+const Stack = createStackNavigator();
+
+// Screen
+import HomeScreen from './Screen/HomeScreen';
+import HistoryScreen from './Screen/HistoryScreen';
+import OptionsScreen from './Screen/OptionsScreen';
+import GameScreen from './Screen/GameScreen';
+import SplashScreen from './Screen/SplashScreen';
+import RetryScreen from './Screen/RetryScreen';
+import GameOver from './Screen/GameOver';
+
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="HomeScreen" component={HomeScreen} options={{headerShown: false}}/>
+        <Stack.Screen name="GameScreen" component={GameScreen} options={{headerShown: false}}/>
+        <Stack.Screen name="RetryScreen" component={RetryScreen} options={{headerShown: false}}/>
+        <Stack.Screen name="HistoryScreen" component={HistoryScreen}/>
+        <Stack.Screen name="OptionsScreen" component={OptionsScreen}/>
+        <Stack.Screen name="GameOver" component={GameOver}/>
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+/*<Stack.Screen name="SplashScreen" component={SplashScreen} options={{headerShown: false}}/>*/
