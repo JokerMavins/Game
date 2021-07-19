@@ -77,8 +77,8 @@ export default class GameScreen extends Component {
     }
     const {navigation, route} = this.props;
     const nbre = this.state.random;
-    const film = this.state.movies[nbre]
-    console.log(film)
+    const film = this.state.movies[nbre];
+    console.log(film);
     return (
       <View style={styles.container}>
           { this.state.nbrQuestion >=0 && this.state.count > 0 ? 
@@ -88,10 +88,10 @@ export default class GameScreen extends Component {
                   <Text style={styles.timeText}>---------- { "00:" + this.state.count } ----------</Text>
               </View>
               <View style={styles.cardImage}>
-                  <Image source={this.state.movies} resizeMode="cover" style={styles.img}/>
+                <Image source={film} resizeMode="cover" style={styles.img}/>
               </View>
               <View style={styles.cardText}>
-                  <Text style={styles.text}>{this.state.movies.title}</Text>
+                  <Text style={styles.text}>{film.title}</Text>
               </View>
               <View style={styles.rowDisplay}>
                   <TouchableOpacity onPress={({oui}) => verifyResponse({oui:'oui'})} style={styles.buttons}>
